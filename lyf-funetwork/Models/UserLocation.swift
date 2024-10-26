@@ -22,8 +22,13 @@ struct Location : Encodable, Decodable {
 }
 
 enum LocationEnum : String, Encodable, Decodable {
-    case kitchen
-    case coworking
-    case gym
-    case laundry
+    case none = "none"
+    case gymA = "gymA"
+    case gymB = "gymB"
+    case gymC = "gymC"
+    case kitchen = "kitchen"
+    case coworkingA = "coworkingA"
+    case coworkingB = "coworkingB"
+    case coworkingC = "coworkingC"
+    case laundry = "laundry"
 }

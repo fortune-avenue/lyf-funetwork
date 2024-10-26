@@ -24,7 +24,7 @@ class UserUseCase {
     // Read (fetch) a user by ID
     func getUser(byID id: Int8) async -> User? {
         do {
-            var user : [User] = try await client
+            let user : [User] = try await client
                 .from("user")
                 .select("id, name")
                 .execute()
