@@ -9,16 +9,93 @@
 /* Begin PBXBuildFile section */
 		9984E4E92CCA55B800CBF107 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 9984E4E82CCA55B800CBF107 /* Realtime */; };
 		9984E4EB2CCA55B800CBF107 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9984E4EA2CCA55B800CBF107 /* Supabase */; };
+		99FE3C822CCCB0C400AD4727 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FE3C812CCCB0C400AD4727 /* WidgetKit.framework */; };
+		99FE3C842CCCB0C400AD4727 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FE3C832CCCB0C400AD4727 /* SwiftUI.framework */; };
+		99FE3C952CCCB0C600AD4727 /* locationSharingExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 99FE3C7F2CCCB0C400AD4727 /* locationSharingExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		99FE3C932CCCB0C600AD4727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9984E4B52CCA54EA00CBF107 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99FE3C7E2CCCB0C400AD4727;
+			remoteInfo = locationSharingExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		99FE3C9A2CCCB0C600AD4727 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				99FE3C952CCCB0C600AD4727 /* locationSharingExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9984E4BD2CCA54EA00CBF107 /* lyf-funetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lyf-funetwork.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99FE3C7F2CCCB0C400AD4727 /* locationSharingExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = locationSharingExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		99FE3C812CCCB0C400AD4727 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		99FE3C832CCCB0C400AD4727 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		99FE3C772CCCADB000AD4727 /* Exceptions for "lyf-funetwork" folder in "lyf-funetwork" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9984E4BC2CCA54EA00CBF107 /* lyf-funetwork */;
+		};
+		99FE3C992CCCB0C600AD4727 /* Exceptions for "locationSharing" folder in "locationSharingExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 99FE3C7E2CCCB0C400AD4727 /* locationSharingExtension */;
+		};
+		99FE3CA02CCCB1EC00AD4727 /* Exceptions for "lyf-funetwork" folder in "locationSharingExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/UserLocation.swift,
+				UseCases/Beacon/BeaconConfigs.swift,
+				UseCases/Beacon/BeaconDetection.swift,
+			);
+			target = 99FE3C7E2CCCB0C400AD4727 /* locationSharingExtension */;
+		};
+		99FE3CAD2CCCB41000AD4727 /* Exceptions for "locationSharing" folder in "lyf-funetwork" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Extensions/BeaconDetection+Activity.swift",
+				LocationActivity/LocationAttributes.swift,
+			);
+			target = 9984E4BC2CCA54EA00CBF107 /* lyf-funetwork */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9984E4BF2CCA54EA00CBF107 /* lyf-funetwork */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				99FE3C772CCCADB000AD4727 /* Exceptions for "lyf-funetwork" folder in "lyf-funetwork" target */,
+				99FE3CA02CCCB1EC00AD4727 /* Exceptions for "lyf-funetwork" folder in "locationSharingExtension" target */,
+			);
 			path = "lyf-funetwork";
+			sourceTree = "<group>";
+		};
+		99FE3C852CCCB0C400AD4727 /* locationSharing */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				99FE3CAD2CCCB41000AD4727 /* Exceptions for "locationSharing" folder in "lyf-funetwork" target */,
+				99FE3C992CCCB0C600AD4727 /* Exceptions for "locationSharing" folder in "locationSharingExtension" target */,
+			);
+			path = locationSharing;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +110,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		99FE3C7C2CCCB0C400AD4727 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99FE3C842CCCB0C400AD4727 /* SwiftUI.framework in Frameworks */,
+				99FE3C822CCCB0C400AD4727 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				9984E4BF2CCA54EA00CBF107 /* lyf-funetwork */,
+				99FE3C852CCCB0C400AD4727 /* locationSharing */,
+				99FE3C802CCCB0C400AD4727 /* Frameworks */,
 				9984E4BE2CCA54EA00CBF107 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,8 +136,18 @@
 			isa = PBXGroup;
 			children = (
 				9984E4BD2CCA54EA00CBF107 /* lyf-funetwork.app */,
+				99FE3C7F2CCCB0C400AD4727 /* locationSharingExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		99FE3C802CCCB0C400AD4727 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99FE3C812CCCB0C400AD4727 /* WidgetKit.framework */,
+				99FE3C832CCCB0C400AD4727 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -62,10 +160,12 @@
 				9984E4B92CCA54EA00CBF107 /* Sources */,
 				9984E4BA2CCA54EA00CBF107 /* Frameworks */,
 				9984E4BB2CCA54EA00CBF107 /* Resources */,
+				99FE3C9A2CCCB0C600AD4727 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				99FE3C942CCCB0C600AD4727 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9984E4BF2CCA54EA00CBF107 /* lyf-funetwork */,
@@ -79,6 +179,28 @@
 			productReference = 9984E4BD2CCA54EA00CBF107 /* lyf-funetwork.app */;
 			productType = "com.apple.product-type.application";
 		};
+		99FE3C7E2CCCB0C400AD4727 /* locationSharingExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99FE3C962CCCB0C600AD4727 /* Build configuration list for PBXNativeTarget "locationSharingExtension" */;
+			buildPhases = (
+				99FE3C7B2CCCB0C400AD4727 /* Sources */,
+				99FE3C7C2CCCB0C400AD4727 /* Frameworks */,
+				99FE3C7D2CCCB0C400AD4727 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				99FE3C852CCCB0C400AD4727 /* locationSharing */,
+			);
+			name = locationSharingExtension;
+			packageProductDependencies = (
+			);
+			productName = locationSharingExtension;
+			productReference = 99FE3C7F2CCCB0C400AD4727 /* locationSharingExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -90,6 +212,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					9984E4BC2CCA54EA00CBF107 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					99FE3C7E2CCCB0C400AD4727 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -112,12 +237,20 @@
 			projectRoot = "";
 			targets = (
 				9984E4BC2CCA54EA00CBF107 /* lyf-funetwork */,
+				99FE3C7E2CCCB0C400AD4727 /* locationSharingExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9984E4BB2CCA54EA00CBF107 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99FE3C7D2CCCB0C400AD4727 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -134,7 +267,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		99FE3C7B2CCCB0C400AD4727 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		99FE3C942CCCB0C600AD4727 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99FE3C7E2CCCB0C400AD4727 /* locationSharingExtension */;
+			targetProxy = 99FE3C932CCCB0C600AD4727 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9984E4C92CCA54EC00CBF107 /* Debug */ = {
@@ -267,6 +415,8 @@
 				DEVELOPMENT_TEAM = 5V847CY3JM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "lyf-funetwork/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Test;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Test;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -299,6 +449,8 @@
 				DEVELOPMENT_TEAM = 5V847CY3JM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "lyf-funetwork/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Test;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Test;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -314,6 +466,60 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fortuneav.lyf-funetwork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		99FE3C972CCCB0C600AD4727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5V847CY3JM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = locationSharing/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = locationSharing;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fortuneav.lyf-funetwork.locationSharing";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99FE3C982CCCB0C600AD4727 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5V847CY3JM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = locationSharing/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = locationSharing;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fortuneav.lyf-funetwork.locationSharing";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -337,6 +543,15 @@
 			buildConfigurations = (
 				9984E4CC2CCA54EC00CBF107 /* Debug */,
 				9984E4CD2CCA54EC00CBF107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99FE3C962CCCB0C600AD4727 /* Build configuration list for PBXNativeTarget "locationSharingExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99FE3C972CCCB0C600AD4727 /* Debug */,
+				99FE3C982CCCB0C600AD4727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

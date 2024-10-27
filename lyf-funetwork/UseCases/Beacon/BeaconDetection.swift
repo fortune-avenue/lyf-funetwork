@@ -67,7 +67,7 @@ struct BeaconConfig: Identifiable {
     }
 }
 
-struct DetectedBeacon: Identifiable {
+struct DetectedBeacon: Identifiable, Equatable {
     let id = UUID()
     let locationName: LocationEnum
     let accuracy: Double
@@ -90,7 +90,7 @@ class BeaconDetection: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = BeaconDetection()
     
     // Published properties
-    @Published private(set) var detectedBeacon: DetectedBeacon = .noDetection
+    @Published var detectedBeacon: DetectedBeacon = .noDetection
     @Published private(set) var activeBeacons: [UUID: DetectedBeacon] = [:]
     @Published private var isLocationSegmentChange: Bool = false
     

@@ -13,7 +13,9 @@ struct CircleButton: View {
     let fillColor: Color
     var action: () -> Void
     
-    init(iconName: String, foregroundColor: Color = .white, fillColor: Color = .orange, action: @escaping () -> Void) {
+    @State private var isPressed = false
+    
+    init(iconName: String, foregroundColor: Color = .white, fillColor: Color = Color(.primary), action: @escaping () -> Void) {
         self.iconName = iconName
         self.foregroundColor = foregroundColor
         self.fillColor = fillColor
@@ -21,16 +23,37 @@ struct CircleButton: View {
     }
     
     var body: some View {
-        Button(action: action) {
-            Image(systemName: iconName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20, height: 20) // Size of the SF Symbol
-                .foregroundColor(foregroundColor)
-                .padding()
-                .background(Circle().fill(fillColor)) // Circle background
+        Button(action: {
+            withAnimation(.easeIn(duration: 0.1)) {
+                isPressed = true
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                withAnimation(.easeOut(duration: 0.1)) {
+                    isPressed = false
+                }
+                action()
+            }
+        }) {
+            ZStack {
+                // Solid black shadow circle
+                Circle()
+                    .fill(Color.black)
+                    .offset(x: 0, y: 6)
+                
+                // Main colored button
+                Image(systemName: iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(foregroundColor)
+                    .padding()
+                    .background(Circle().fill(fillColor))
+                    .offset(y: isPressed ? 6 : 0)
+            }
         }
-        .frame(width: 50, height: 50) // Outer frame to keep the touch area larger
+        .frame(width: 54, height: 54) // Slightly larger to accommodate shadow
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -41,7 +64,9 @@ struct MyButton: View {
     let fillColor: Color
     var action: () -> Void
     
-    init(text: String?, iconName: String?, foregroundColor: Color = .white, fillColor: Color = .orange, action: @escaping () -> Void) {
+    @State private var isPressed = false
+    
+    init(text: String?, iconName: String?, foregroundColor: Color = .white, fillColor: Color = Color(.primary), action: @escaping () -> Void) {
         self.text = text
         self.iconName = iconName
         self.foregroundColor = foregroundColor
@@ -50,21 +75,62 @@ struct MyButton: View {
     }
     
     var body: some View {
-        Button(action: action) {
-            HStack(spacing: 5) {
-                if let text = text {
-                    Text(text)
-                        .foregroundColor(foregroundColor)
-                        .font(.body)
-                }
-                if let iconName = iconName {
-                    Image(systemName: iconName)
-                        .foregroundColor(foregroundColor)
-                }
+        Button(action: {
+            withAnimation(.easeIn(duration: 0.1)) {
+                isPressed = true
             }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(fillColor))
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                withAnimation(.easeOut(duration: 0.1)) {
+                    isPressed = false
+                }
+                action()
+            }
+        }) {
+            ZStack {
+                // Solid black shadow shape
+                HStack(spacing : 5) {
+                    if let text = text {
+                        Text(text)
+                            .foregroundColor(foregroundColor)
+                            .font(.body)
+                    }
+                    if let iconName = iconName {
+                        Image(systemName: iconName)
+                            .foregroundColor(foregroundColor)
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.black)
+                        .offset(x: 0, y: 7)
+                    
+                )
+                
+                
+                // Main colored button
+                HStack(spacing: 5) {
+                    if let text = text {
+                        Text(text)
+                            .foregroundColor(foregroundColor)
+                            .font(.body)
+                    }
+                    if let iconName = iconName {
+                        Image(systemName: iconName)
+                            .foregroundColor(foregroundColor)
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(fillColor)
+                )
+                .offset(y: isPressed ? 7 : 0) // Move to shadow position when pressed
+            }
         }
+        .frame(height: 48)
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
