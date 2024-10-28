@@ -20,7 +20,7 @@ enum LocationAsset: String, CaseIterable {
 }
 
 struct MapView: View {
-    @State private var selectedAsset: LocationAsset = .all
+    @Binding var selectedAsset: LocationAsset 
     
     var body: some View {
             VStack {
@@ -62,9 +62,6 @@ struct MapView: View {
     }
 }
 
-#Preview {
-    MapView()
-}
 
 struct CircleView: View {
     var body: some View {

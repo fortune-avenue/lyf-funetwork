@@ -12,9 +12,13 @@ class Router: ObservableObject {
     
     enum Route: Hashable {
         case map
-        case mapDetail
+        case gym
+        case kitchen
+        case lounge
+        case laundry
         case profile
         case notification
+        case forum
     }
     
     func navigate(to route: Route) {

@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct lyf_funetworkApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

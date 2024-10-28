@@ -8,15 +8,16 @@
 import Foundation
 
 enum LocationEnum : String, Encodable, Decodable {
-    case none = "none"
-    case gymA = "gymA"
-    case gymB = "gymB"
-    case gymC = "gymC"
-    case kitchen = "kitchen"
-    case coworkingA = "coworkingA"
-    case coworkingB = "coworkingB"
-    case coworkingC = "coworkingC"
-    case laundry = "laundry"
+    case none = "None"
+    case gymA = "Gym \n Hamsterwheel"
+    case gymB = "Gym \n Bikes"
+    case gymC = "Gym \n Weights"
+    case kitchenA = "Kitchen \n Island A"
+    case kitchenB = "Kitchen \n Island B"
+    case coworkingA = "Coworking \n Table A"
+    case coworkingB = "Coworking \n Table B"
+    case coworkingC = "Coworking \n Table C"
+    case laundry = "Laundry"
 }
 
 let LyfBeaconConfigs = [
@@ -33,7 +34,8 @@ let LyfBeaconConfigs = [
         name: "kitchen",
         uuid: UUID(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")!,
         segments: [
-            BeaconConfig.BeaconSegment(name: .kitchen, major: 1, minor: 1)
+            BeaconConfig.BeaconSegment(name: .kitchenA, major: 1, minor: 1),
+            BeaconConfig.BeaconSegment(name: .kitchenB, major: 1, minor: 2),
         ]
     ),
     BeaconConfig(

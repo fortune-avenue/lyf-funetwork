@@ -57,6 +57,33 @@ struct CircleButton: View {
     }
 }
 
+struct BackButton: View {
+    @EnvironmentObject var router : Router
+    
+    var body: some View {
+        VStack {
+            // Back button
+            HStack {
+                Button(action: {
+                    router.navigateBack()
+                    print("Back button tapped")
+                }) {
+                    Image(systemName: "chevron.backward")
+                        .font(.title2)
+                        .foregroundColor(.primary)
+                        .padding(.leading, 12)
+                }
+                Spacer()
+            }
+            .padding(.leading)
+            .padding(.top, 10)
+            
+            Spacer()
+            // Your main content here
+        }
+    }
+}
+
 struct MyButton: View {
     let text: String?
     let iconName: String?

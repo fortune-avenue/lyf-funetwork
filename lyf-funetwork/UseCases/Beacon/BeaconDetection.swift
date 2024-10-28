@@ -69,7 +69,7 @@ struct BeaconConfig: Identifiable {
 
 struct DetectedBeacon: Identifiable, Equatable {
     let id = UUID()
-    let locationName: LocationEnum
+    var locationName: LocationEnum
     let accuracy: Double
     let proximity: CLProximity
     let lastUpdate: Date

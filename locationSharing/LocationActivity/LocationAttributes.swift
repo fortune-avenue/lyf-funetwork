@@ -7,15 +7,20 @@
 
 import ActivityKit
 import SwiftUI
+import CoreLocation
 
 struct LocationAttributes: ActivityAttributes {
     public typealias LocationActivityStatus = ContentState
     
     public struct ContentState: Codable, Hashable {
         var locationName: LocationEnum
-        var proximity: String
+        var proximity: CLProximity
+        var accuracy : CLLocationAccuracy
         var timestamp: Date
     }
     
     var userName: String
+}
+
+extension CLProximity: Codable {
 }

@@ -21,7 +21,7 @@ struct LocationLiveActivityView: View {
                     .font(.system(size: 16, weight: .bold))
             }
             
-            ProximityView(proximity: context.state.proximity)
+            ProximityView(proximity: context.state.proximity.rawValue.description)
             
             ShareButton()
         }

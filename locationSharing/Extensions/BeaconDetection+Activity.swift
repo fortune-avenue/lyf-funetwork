@@ -29,7 +29,8 @@ extension BeaconDetection {
         let attributes = LocationAttributes(userName: "User")
         let contentState = LocationAttributes.ContentState(
             locationName: detectedBeacon.locationName,
-            proximity: proximityString(detectedBeacon.proximity),
+            proximity: detectedBeacon.proximity,
+            accuracy: detectedBeacon.accuracy,
             timestamp: Date()
         )
         

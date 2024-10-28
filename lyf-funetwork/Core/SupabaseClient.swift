@@ -16,8 +16,8 @@ class Supa: ObservableObject {
     private init() {
         // Initialize the Supabase client with your URL and API key
         client = SupabaseClient(
-            supabaseURL: URL(string: "https://icpuzvxjqusersaheege.supabase.co")!,
-            supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljcHV6dnhqcXVzZXJzYWhlZWdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2ODI4NDgsImV4cCI6MjA0NTI1ODg0OH0.pCbDNVs-m8tHAD22ZEAMfd1d7q0QXxUOY-teWq6dMHY"
+            supabaseURL: URL(string: "https://qcmgdvvckpzlcrlavaee.supabase.co")!,
+            supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFjbWdkdnZja3B6bGNybGF2YWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk3MDExNjEsImV4cCI6MjA0NTI3NzE2MX0.DLcB2O3s2gnpewoW1xVM-bXqUkRN0-vClXy3Rh5rDfM"
         )
     }
 }

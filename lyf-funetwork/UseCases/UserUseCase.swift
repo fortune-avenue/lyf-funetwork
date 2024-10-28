@@ -17,21 +17,39 @@ class UserUseCase {
     
     // Private initializer to prevent instantiation
     private init() {
-        // Access the shared Supabase client from the Supa singleton
         client = Supa.shared.client
     }
     
-    // Read (fetch) a user by ID
-    func getUser(byID id: Int8) async -> User? {
+    func updateUserLocation(newLoc: LocationEnum) async {
         do {
-            let user : [User] = try await client
-                .from("user")
-                .select("id, name")
+             var a = try await client
+                .from("user_location")
+                .update([
+                    "location": newLoc.rawValue,
+                ])
+                .eq("id", value: 2)
+                .execute()
+            
+            print(a.response)
+            
+        } catch {
+            print("Failed to update UserLocation: \(error)")
+        }
+    }
+    
+    // Read (fetch) a user by ID
+    func getUserLocation() async -> [UserLocation]? {
+        do {
+            let user : [UserLocation] = try await client
+                .from("user_location")
+                .select("id, location, photo_profile")
                 .execute()
                 .value
             
-            return user[0]
+            print("response", user)
+            return user
         } catch {
+            print("Failed to fetch User: \(error)")
             return nil
         }
     }

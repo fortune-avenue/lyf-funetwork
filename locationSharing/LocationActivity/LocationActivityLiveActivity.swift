@@ -9,34 +9,37 @@
 import ActivityKit
 import WidgetKit
 import SwiftUI
-
-import ActivityKit
-import WidgetKit
-import SwiftUI
+import CoreLocation
 
 struct LocationActivityLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: LocationAttributes.self) { context in
-            // Expanded view when tapped
             VStack(spacing: 12) {
                 HStack {
-                    Image(systemName: "location.fill")
-                        .foregroundColor(getProximityColor(context.state.proximity))
+                    Image("lyfOutline")
+                        .resizable()
+                        .frame(maxWidth: 24, maxHeight: 24)
+                        .padding(.leading, 8)
                     
-                    Text("You're in")
-                        .font(.subheadline)
-                    Text(context.state.locationName.rawValue)
-                        .font(.headline)
+                    if (context.state.locationName != .none) {
+                        Text("You're in")
+                            .font(.subheadline)
+                        Text(context.state.locationName.rawValue)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                    } else {
+                        Text("You're not detected anywhere. Try to mingle? 👀")
+                            .font(.subheadline)
+                    }
+                   
+                    
+                    Spacer()
+                    
+                    Circle()
+                        .fill(getProximityColor(context.state.proximity))
+                        .frame(width: 14, height: 14)
+                        .padding(.trailing, 8)
                 }
-                
-                Button("Share Presence") {
-                    // Handle share action through URL scheme or deep link
-                }
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.white)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .background(Capsule().fill(Color.blue))
             }
             .padding()
             
@@ -44,50 +47,85 @@ struct LocationActivityLiveActivity: Widget {
             DynamicIsland {
                 // Expanded layout
                 DynamicIslandExpandedRegion(.leading) {
-                    Label(context.state.locationName.rawValue,
-                          systemImage: "location.fill")
-                        .font(.headline)
+                    HStack {
+                        Image("lyfOutline")
+                            .resizable()
+                            .frame(maxWidth: 16, maxHeight: 16)
+                            .padding(.leading, 6)
+                        
+                        if (context.state.locationName != .none) {
+                            Text("in")
+                                .font(.caption)
+                                .lineLimit(1)
+                            
+                            Text(context.state.locationName.rawValue)
+                                .fontWeight(.bold)
+                        } else {
+                            Text("Unknown")
+                                .font(.caption)
+                                .lineLimit(1)
+                        }
+                       
+                    }
                 }
                 
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text(context.state.proximity)
-                        .font(.subheadline)
-                        .foregroundColor(getProximityColor(context.state.proximity))
+                    Circle()
+                        .fill(getProximityColor(context.state.proximity))
+                        .frame(width: 18, height: 18)
+                        .padding(.trailing, 6)
                 }
                 
                 DynamicIslandExpandedRegion(.bottom) {
-                    Button("Share Location") {
-                        // Handle share action
+                    HStack {
+                        Text("Someone can see your presence in here!")
+                            .font(.subheadline)
+                            
+                        Spacer()
+                        Image(systemName: "arrow.forward")
+                            .foregroundStyle(.orange)
+                            
                     }
-                    .frame(maxWidth: .infinity)
+                    .padding(6)
+                    
                 }
             } compactLeading: {
                 // Minimal leading view
                 HStack {
-                    Image(systemName: "location.fill")
-                    Text(context.state.locationName.rawValue)
-                        .font(.caption)
-                        .lineLimit(1)
+                    Image("lyfOutline")
+                        .resizable()
+                        .frame(maxWidth: 16, maxHeight: 12)
+                        .padding(.leading, 2)
+                    
+                    if context.state.locationName != .none {
+                        
+                        Text(context.state.locationName.rawValue)
+                            .font(.caption)
+                            .lineLimit(1)
+                    }
+                    
                 }
             } compactTrailing: {
                 // Minimal trailing view
                 Circle()
                     .fill(getProximityColor(context.state.proximity))
                     .frame(width: 14, height: 14)
+                    .padding(.trailing, 2)
             } minimal: {
-                // Ultra-minimal view
                 Image(systemName: "location.fill")
                     .foregroundColor(getProximityColor(context.state.proximity))
             }
+                
         }
     }
     
-    private func getProximityColor(_ proximity: String) -> Color {
+    private func getProximityColor(_ proximity: CLProximity) -> Color {
         switch proximity {
-        case "Immediate": return .green
-        case "Near": return .yellow
-        case "Far": return .red
+        case .immediate: return .orange
+        case .near: return .orange
+        case .far: return .yellow
         default: return .gray
         }
     }
 }
+
